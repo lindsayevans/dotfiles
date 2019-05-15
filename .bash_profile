@@ -6,7 +6,7 @@ export NVM_DIR="$HOME/.nvm"
 
 # powerline-go prompt
 function _update_ps1() {
-    PS1="$(/usr/local/bin/powerline-go -error $?)"
+    PS1="$(/usr/local/bin/powerline-go -error $? -newline -max-width 100 -colorize-hostname)"
 }
 
 if [ "$TERM" != "linux" ] && [ -f "/usr/local/bin/powerline-go" ]; then
