@@ -15,3 +15,8 @@ https://github.com/justjanne/powerline-go#installation
 mv Downloads/powerline-go-darwin-amd64 /usr/local/bin/powerline-go
 chmod +x /usr/local/bin/powerline-go
 ```
+
+3. Install vtop
+```bash
+npm i -g vtop
+```

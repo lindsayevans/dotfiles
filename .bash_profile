@@ -15,6 +15,7 @@ fi
 
 # Aliases
 alias ll="ls -lac"
+alias vtop="vtop --theme monokai"
 
 # Colours
 CLICOLOR=1
