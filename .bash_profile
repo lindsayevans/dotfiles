@@ -1,17 +1,23 @@
-eval "$(grunt --completion=bash)"
 
-source /usr/local/lib/dnx/bin/dnvm.sh
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
 
-export GITAWAREPROMPT=~/.bash/git-aware-prompt
-source "${GITAWAREPROMPT}/main.sh"
+# powerline-go prompt
+function _update_ps1() {
+    PS1="$(/usr/local/bin/powerline-go -error $?)"
+}
 
-export PS1="\u@\h \W \[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\]\$ "
-export SUDO_PS1="\[$bakred\]\u@\h\[$txtrst\] \w\$ "
+if [ "$TERM" != "linux" ] && [ -f "/usr/local/bin/powerline-go" ]; then
+    PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
 
+# Aliases
 alias ll="ls -lac"
 
+# Colours
 CLICOLOR=1
 export CLICOLOR
 LSCOLORS=Exfxcxdxbxegedabagacad
 export LSCOLORS
-
